@@ -1,32 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="sb-nav-fixed">
+      <div id="layoutSidenav">
+        <NavBar />
+        <SideBar />
+        <div id="layoutSidenav_content">
+          <router-view />
+          <Footer />
+        </div>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<script>
+import NavBar from "@/template/partials/NavBar.vue";
+import SideBar from "@/template/partials/SideBar.vue";
+import Footer from "@/template/partials/Footer.vue";
+export default {
+  components: {
+    NavBar,
+    SideBar,
+    Footer,
+  },
+};
+</script>
