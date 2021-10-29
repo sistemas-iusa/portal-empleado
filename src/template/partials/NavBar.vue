@@ -1,7 +1,10 @@
 <template>
-  <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
+  <nav
+    class="sb-topnav navbar navbar-expand navbar-light bg-light"
+    v-if="authenticated"
+  >
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">
+    <a class="navbar-brand ps-3" href="/">
       <img :src="'img/logo_pe.svg'" />&nbsp;&nbsp;<span
         style="border-left: 2px solid; color: #636363;"
       ></span
@@ -56,13 +59,40 @@
           ><i class="far fa-bell"></i
         ></a>
       </li>
+      <a
+        class="btn btn-portal btn-md btn-block"
+        style="margin-left:20px;"
+        @click.prevent="signOut"
+        data-toggle="modal"
+        data-target="#logoutModal"
+      >
+        Logout
+      </a>
     </ul>
   </nav>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "NavBar",
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
+  },
+  methods: {
+    ...mapActions({
+      signOutAction: "auth/signOut",
+    }),
+    signOut() {
+      this.signOutAction().then(() => {
+        this.$router.replace({
+          name: "SignIn",
+        });
+      });
+    },
+  },
 };
 </script>
 
