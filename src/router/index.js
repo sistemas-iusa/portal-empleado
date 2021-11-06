@@ -6,6 +6,7 @@ import SignIn from "../views/auth/SignIn.vue";
 import EvaluacionPersonal from "../views/EvaluacionPersonal.vue";
 import EvaluacionSemanal from "../views/EvaluacionSemanal.vue";
 import RecibosNomina from "../views/RecibosNomina.vue";
+import UserProfile from "../views/user_profile/UserProfile.vue";
 import store from "@/store";
 
 Vue.use(VueRouter);
@@ -80,6 +81,19 @@ const routes = [
     path: "/recibos-nomina",
     name: "RecibosNomina",
     component: RecibosNomina,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/user-profile",
+    name: "UserProfile",
+    component: UserProfile,
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
         return next({

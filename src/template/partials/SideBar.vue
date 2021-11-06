@@ -3,7 +3,12 @@
     <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
       <div class="sb-sidenav-menu">
         <div class="nav">
-          <div class="sb-sidenav-menu-heading" style="color:#000;text-align:center;">{{user.name}}</div>
+          <div
+            class="sb-sidenav-menu-heading"
+            style="color:#000;text-align:center;"
+          >
+            {{ user.name }}
+          </div>
           <a class="nav-link" href="/">
             <div class="sb-nav-link-icon">
               <i class="fas fa-home"></i>
@@ -33,9 +38,16 @@
             data-bs-parent="#sidenavAccordion"
           >
             <nav class="sb-sidenav-menu-nested nav">
-              <a class="nav-link" href="/">Recibos de Nómina</a>
+              <router-link :to="{ name: 'RecibosNomina' }" class="nav-link"
+                >Recibos de Nómina</router-link
+              >
               <a class="nav-link" href="">Solicitud de Vacaciones</a>
-              <a class="nav-link" href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml" target="_blank">Reg. de Gastos de Viaje</a>
+              <a
+                class="nav-link"
+                href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml"
+                target="_blank"
+                >Reg. de Gastos de Viaje</a
+              >
               <a class="nav-link" href="">Código de Conducta</a>
               <a
                 class="nav-link"
@@ -78,7 +90,9 @@
                 target="_blank"
                 >Webmail
               </a>
-              <router-link :to="{name:'HomeOffice'}" class="nav-link">Home Office IUSA</router-link>
+              <router-link :to="{ name: 'HomeOffice' }" class="nav-link"
+                >Home Office IUSA</router-link
+              >
               <a
                 class="nav-link"
                 href="https://contingencia.iusa.com.mx/"
@@ -151,17 +165,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-  export default{
+import { mapGetters } from "vuex";
+export default {
   computed: {
     ...mapGetters({
-      authenticated: 'auth/authenticated',
-      user: 'auth/user',
-    })
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
   },
-  methods: {
-  },
-  }
+  methods: {},
+};
 </script>
 
 <style></style>
