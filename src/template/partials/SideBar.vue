@@ -38,7 +38,7 @@
             data-bs-parent="#sidenavAccordion"
           >
             <nav class="sb-sidenav-menu-nested nav">
-              <router-link :to="{ name: 'RecibosNomina' }" class="nav-link"
+              <router-link :to="{ name: 'Receipt' }" class="nav-link"
                 >Recibos de Nómina</router-link
               >
               <a class="nav-link" href="">Solicitud de Vacaciones</a>

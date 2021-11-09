@@ -5,7 +5,7 @@ import HomeOffice from "../views/HomeOffice.vue";
 import SignIn from "../views/auth/SignIn.vue";
 import EvaluacionPersonal from "../views/EvaluacionPersonal.vue";
 import EvaluacionSemanal from "../views/EvaluacionSemanal.vue";
-import RecibosNomina from "../views/RecibosNomina.vue";
+import Receipt from "../views/receipt/Receipt.vue";
 import UserProfile from "../views/user_profile/UserProfile.vue";
 import store from "@/store";
 
@@ -78,9 +78,9 @@ const routes = [
     },
   },
   {
-    path: "/recibos-nomina",
-    name: "RecibosNomina",
-    component: RecibosNomina,
+    path: "/receipt",
+    name: "Receipt",
+    component: Receipt,
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
         return next({
