@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import HomeOffice from "../views/HomeOffice.vue";
 import SignIn from "../views/auth/SignIn.vue";
 import EvaluacionPersonal from "../views/EvaluacionPersonal.vue";
-import EvaluacionSemanal from "../views/EvaluacionSemanal.vue";
+import WeeklyEvaluation from "../views/weekly_evaluation/WeeklyEvaluation.vue";
 import Receipt from "../views/receipt/Receipt.vue";
 import UserProfile from "../views/user_profile/UserProfile.vue";
 import store from "@/store";
@@ -65,9 +65,9 @@ const routes = [
     },
   },
   {
-    path: "/evaluacion-semanal",
-    name: "EvaluacionSemanal",
-    component: EvaluacionSemanal,
+    path: "/weekly-evaluation",
+    name: "WeeklyEvaluation",
+    component: WeeklyEvaluation,
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
         return next({

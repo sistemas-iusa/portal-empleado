@@ -68,7 +68,7 @@
         data-toggle="modal"
         data-target="#logoutModal"
       >
-        Logout
+        <i class="fas fa-sign-out-alt"></i> Salir
       </a>
     </ul>
   </nav>

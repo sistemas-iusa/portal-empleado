@@ -12,8 +12,8 @@
           </router-link>
         </div>
         <div class="col-xl-6" style="text-align:center;">
-          <router-link :to="{ name: 'EvaluacionSemanal' }">
-          <img :src="'img/banner_ho_02.png'" />
+          <router-link :to="{ name: 'WeeklyEvaluation' }">
+            <img :src="'img/banner_ho_02.png'" />
           </router-link>
         </div>
       </div>

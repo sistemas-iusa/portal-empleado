@@ -5,6 +5,7 @@ export default {
   state: {
     token: null,
     user: null,
+    role: null,
   },
 
   getters: {
@@ -13,6 +14,9 @@ export default {
     },
     user(state) {
       return state.user;
+    },
+    role(state) {
+      return state.role;
     },
   },
 
@@ -23,8 +27,11 @@ export default {
     SET_USER(state, data) {
       state.user = data;
     },
+    SET_ROLE(state, role) {
+      state.role = role;
+    },
   },
-  
+
   actions: {
     async signIn({ dispatch }, credentials) {
       let response = await axios.post("signin", credentials);
@@ -40,15 +47,18 @@ export default {
       }
       try {
         let response = await axios.get("info");
-        commit("SET_USER", response.data);
+        commit("SET_USER", response.data.user);
+        commit("SET_ROLE", response.data.role);
       } catch (e) {
         commit("SET_TOKEN", null);
         commit("SET_USER", null);
+        commit("SET_ROLE", null);
       }
     },
     signOut({ commit }) {
       commit("SET_TOKEN", null);
       commit("SET_USER", null);
+      commit("SET_ROLE", null);
     },
   },
 };

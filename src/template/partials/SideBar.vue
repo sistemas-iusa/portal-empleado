@@ -7,7 +7,13 @@
             class="sb-sidenav-menu-heading"
             style="color:#000;text-align:center;"
           >
-            {{ user.name }}
+            <img
+              :src="'img/photo_user_32.png'"
+              alt=""
+              style="border-radius: 50%;"
+              width="32px;"
+            />
+            &nbsp;{{ user.name }}
           </div>
           <a class="nav-link" href="/">
             <div class="sb-nav-link-icon">
@@ -90,7 +96,10 @@
                 target="_blank"
                 >Webmail
               </a>
-              <router-link :to="{ name: 'HomeOffice' }" class="nav-link"
+              <router-link
+                :to="{ name: 'HomeOffice' }"
+                class="nav-link"
+                v-if="role[0].contingency"
                 >Home Office IUSA</router-link
               >
               <a
@@ -171,6 +180,7 @@ export default {
     ...mapGetters({
       authenticated: "auth/authenticated",
       user: "auth/user",
+      role: "auth/role",
     }),
   },
   methods: {},

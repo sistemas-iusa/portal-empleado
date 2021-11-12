@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-xl-2">
           <div class="card bg-card-green text-white text-center p-3">
-            <router-link :to="{ name: 'RecibosNomina' }">
+            <router-link :to="{ name: 'Receipt' }">
             <blockquote class="blockquote mb-0">
               <a href="#" class="text-white"
                 ><i class="fas fa-money-check-alt fa-2x"></i
