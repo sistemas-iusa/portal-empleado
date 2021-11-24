@@ -4,12 +4,12 @@
     v-if="authenticated"
   >
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="/">
+    <router-link :to="{ name: 'Home' }" class="navbar-brand ps-3">
       <img :src="'img/logo_pe.svg'" />&nbsp;&nbsp;<span
-        style="border-left: 2px solid; color: #636363;"
+        style="border-left: 2px solid; color: #636363"
       ></span
       >&nbsp;&nbsp;<img :src="'img/logo_iusa_gray.svg'" />
-    </a>
+    </router-link>
     <!-- Sidebar Toggle-->
     <button
       class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
@@ -20,7 +20,13 @@
     </button>
     <!-- Navbar Search-->
     <form
-      class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+      class="
+        d-none d-md-inline-block
+        form-inline
+        ms-auto
+        me-0 me-md-3
+        my-2 my-md-0
+      "
     >
       <div class="input-group rounded">
         <input
@@ -63,7 +69,7 @@
       </li>
       <a
         class="btn btn-portal btn-md btn-block"
-        style="margin-left:20px;"
+        style="margin-left: 20px"
         @click.prevent="signOut"
         data-toggle="modal"
         data-target="#logoutModal"

@@ -5,22 +5,22 @@
         <div class="nav">
           <div
             class="sb-sidenav-menu-heading"
-            style="color:#000;text-align:center;"
+            style="color: #000; text-align: center"
           >
             <img
               :src="'img/photo_user_32.png'"
               alt=""
-              style="border-radius: 50%;"
+              style="border-radius: 50%"
               width="32px;"
             />
             &nbsp;{{ user.name }}
           </div>
-          <a class="nav-link" href="/">
+          <router-link :to="{ name: 'Home' }" class="nav-link">
             <div class="sb-nav-link-icon">
               <i class="fas fa-home"></i>
             </div>
             Home
-          </a>
+          </router-link>
           <a
             class="nav-link collapsed"
             href="#"
@@ -103,12 +103,15 @@
                 >Home Office IUSA</router-link
               >
               <a
+                v-if="role[0].contingency"
                 class="nav-link"
                 href="https://contingencia.iusa.com.mx/"
                 target="_blank"
                 >Contingencia IUSA</a
               >
-              <a class="nav-link" href="#">Salas Físicas</a>
+              <router-link :to="{ name: 'MeetingRoom' }" class="nav-link"
+                >Salas Físicas</router-link
+              >
               <a class="nav-link" href="#">Audioconferencias</a>
               <a class="nav-link" href="#">Directorio de Exts.</a>
               <a
@@ -163,9 +166,9 @@
           </div>
           <a class="nav-link" href="#">
             <div class="sb-nav-link-icon">
-              <img :src="'img/icon_mail.svg'" style="height:1.25em" />
+              <img :src="'img/icon_mail.svg'" style="height: 1.25em" />
             </div>
-            <span style="color:#ba354b;">Buzon de Sugerencias</span>
+            <span style="color: #ba354b">Buzon de Sugerencias</span>
           </a>
         </div>
       </div>
@@ -187,4 +190,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.router-link-exact-active .sb-nav-link-icon {
+  color: #000 !important;
+  font-weight: 700;
+}
+.router-link-exact-active {
+  color: #000 !important;
+  font-weight: 700;
+}
+</style>

@@ -7,64 +7,65 @@
       </ol>
       <div class="row">
         <div class="col-xl-2">
-          <div class="card bg-card-green text-white text-center p-3">
+          <div class="card text-center p-3 card-link">
             <router-link :to="{ name: 'Receipt' }">
-            <blockquote class="blockquote mb-0">
-              <a href="#" class="text-white"
-                ><i class="fas fa-money-check-alt fa-2x"></i
-              ></a>
-              <footer class="card-icon-text">
-                <small>
+              <blockquote class="blockquote mb-0">
+                <a href="#" class="text-black"
+                  ><i class="fas fa-money-check-alt fa-2x"></i
+                ></a>
+                <footer class="card-icon-text">
+                  <small class="text-black card-icon-text-3">
                     Recibos<br />Nomina
-                </small>
-              </footer>
-            </blockquote>
+                  </small>
+                </footer>
+              </blockquote>
             </router-link>
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card bg-card-purple text-white text-center p-3">
-            <a href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml" class="text-white"
-                target="_blank">
-            <blockquote class="blockquote mb-0">
-              <i class="fas fa-suitcase fa-2x"></i
-              >
-              <footer class="card-icon-text">
-                <small>
-                  Reg. gastos de<br />viaje
-                </small>
-              </footer>
-            </blockquote>
+          <div class="card text-center p-3 card-link">
+            <a
+              href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml"
+              class="text-white"
+              target="_blank"
+            >
+              <blockquote class="blockquote mb-0">
+                <a href="#" class="text-black">
+                  <i class="fas fa-suitcase fa-2x"></i
+                ></a>
+                <footer class="text-black card-icon-text">
+                  <small> Reg. gastos de<br />viaje </small>
+                </footer>
+              </blockquote>
             </a>
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card bg-card-orange text-white text-center p-3">
-            <a href="https://normatividad.iusa.com.mx"
-                target="_blank">
-            <blockquote class="blockquote mb-0">
-              <a href="#" class="text-white"
-                ><i class="fas fa-copy fa-2x"></i
-              ></a>
-              <footer class="card-icon-text">
-                <small>
+          <div class="card text-center p-3 card-link">
+            <a href="https://normatividad.iusa.com.mx" target="_blank">
+              <blockquote class="blockquote mb-0">
+                <a href="#" class="text-black"
+                  ><i class="fas fa-copy fa-2x"></i
+                ></a>
+                <footer class="card-icon-text">
+                  <small class="text-black">
                     Normatividad<br />
-                  &nbsp;
-                </small>
-              </footer>
-            </blockquote>
+                    &nbsp;
+                  </small>
+                </footer>
+              </blockquote>
             </a>
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card bg-card-silblue text-white text-center p-3">
+          <div class="card text-center p-3 card-link">
             <blockquote class="blockquote mb-0">
-              <a href="#" class="text-white"
+              <a href="#" class="text-black"
                 ><i class="fas fa-suitcase-rolling fa-2x"></i
               ></a>
               <footer class="card-icon-text">
                 <small>
-                  <a href="#" class="card-icon-text-3 text-white"
+                  <a href="#" class="card-icon-text-3 text-black"
                     >Solicitud<br />Vacaciones</a
                   >
                 </small>
@@ -73,30 +74,32 @@
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card bg-card-bronce text-white text-center p-3">
-            <blockquote class="blockquote mb-0">
-              <a href="#" class="text-white"
-                ><i class="fas fa-users fa-2x"></i
-              ></a>
-              <footer class="card-icon-text">
-                <small>
-                  <a href="#" class="card-icon-text-3 text-white"
-                    >Reservación Sala<br />Juntas</a
-                  >
-                </small>
-              </footer>
-            </blockquote>
-          </div>
+          <router-link :to="{ name: 'MeetingRoom' }">
+            <div class="card text-center p-3 card-link">
+              <blockquote class="blockquote mb-0">
+                <a href="#" class="text-black"
+                  ><i class="fas fa-users fa-2x"></i
+                ></a>
+                <footer class="card-icon-text">
+                  <small>
+                    <a href="#" class="card-icon-text-3 text-black"
+                      >Reservación Sala<br />Juntas</a
+                    >
+                  </small>
+                </footer>
+              </blockquote>
+            </div>
+          </router-link>
         </div>
         <div class="col-xl-2">
-          <div class="card bg-card-aqua text-white text-center p-3">
+          <div class="card text-center p-3 card-link">
             <blockquote class="blockquote mb-0">
-              <a href="#" class="text-white"
+              <a href="#" class="text-black"
                 ><i class="fas fa-phone-alt fa-2x"></i
               ></a>
               <footer class="card-icon-text">
                 <small>
-                  <a href="#" class="card-icon-text-3 text-white"
+                  <a href="#" class="card-icon-text-3 text-black"
                     >Directorio<br />
                     Ext.</a
                   >
@@ -123,19 +126,28 @@
                 data-bs-ride="carousel"
               >
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                  <div
+                    class="carousel-item"
+                    :class="{ active: role[0].contingency }"
+                    v-if="role[0].contingency"
+                  >
                     <img
                       class="d-block w-100 imaCarouselHeight"
                       :src="'img/banner_01.png'"
                       alt="First slide"
                     />
                   </div>
-                  <div class="carousel-item">
-                    <img
-                      class="d-block w-100 imaCarouselHeight"
-                      :src="'img/banner_02.png'"
-                      alt="Second slide"
-                    />
+                  <div
+                    class="carousel-item"
+                    :class="{ active: !role[0].contingency }"
+                  >
+                    <router-link :to="{ name: 'MeetingRoom' }">
+                      <img
+                        class="d-block w-100 imaCarouselHeight"
+                        :src="'img/banner_02.png'"
+                        alt="Second slide"
+                      />
+                    </router-link>
                   </div>
                 </div>
                 <button
@@ -231,7 +243,7 @@
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/grupo_video.JPG'"
@@ -257,7 +269,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/sistemas_intvideo.JPG'"
@@ -282,7 +294,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/iusasol_video.JPG'"
@@ -348,7 +360,7 @@
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top cardImageSize"
                         :src="'img/mapa_pantall.JPG'"
@@ -370,7 +382,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top cardImageSize"
                         :src="'img/mapa_pantalla2.JPG'"
@@ -392,7 +404,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top cardImageSize"
                         :src="'img/mapa_pantalla3.JPG'"
@@ -414,7 +426,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top cardImageSize"
                         :src="'img/mapa_pantalla4.JPG'"
@@ -478,7 +490,7 @@
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/tip_dia1.JPG'"
@@ -498,7 +510,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/tip_dia2.JPG'"
@@ -517,7 +529,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <div class="card ">
+                    <div class="card">
                       <img
                         class="card-img-top"
                         :src="'img/tip_dia3.JPG'"
@@ -567,7 +579,7 @@
           <div class="card mb-4">
             <div class="card-header">
               <i class="fas fa-headset"></i>
-              SERICE DESK
+              SERVICE DESK
             </div>
             <div class="card-body centerItems">
               <div class="panelTextCenter">
@@ -610,7 +622,13 @@
         <div class="col-xl-9">
           <div class="card mb-4">
             <div
-              class="card-header text-white bg-card-portal centerItems card-icon-text"
+              class="
+                card-header
+                text-white
+                bg-card-portal
+                centerItems
+                card-icon-text
+              "
             >
               <i class="fas fa-newspaper"></i>
               NOTICIAS IUSA
@@ -660,8 +678,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "Home",
-  components: {},
+  computed: {
+    ...mapGetters({
+      role: "auth/role",
+    }),
+  },
+  methods: {},
 };
 </script>
+
+<style scoped>
+.card-link {
+  box-shadow: 5px 4px 10px #aaaaaa;
+  border: 1px solid #bfbfbf;
+}
+</style>

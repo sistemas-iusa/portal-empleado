@@ -104,7 +104,7 @@ body {
 
 .bg-img {
   /* The image used */
-  background-image: url("../img/image_login.jpg");
+  background-image: url("img/image_login.jpg");
 
   /* Control the height of the image */
   min-height: 380px;

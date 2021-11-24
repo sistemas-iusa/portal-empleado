@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-4" v-if="data">
       <h3 class="mt-4">MI PERFIL</h3>
       <!-- {{data}} -->
       <ol class="breadcrumb mb-4">
@@ -20,7 +20,7 @@
                   <h5 class="card-title">
                     {{ data.VORNA }} {{ data.NACHN }} {{ data.NACH2 }}
                   </h5>
-                  <i class="fas fa-user fa-3x "></i>
+                  <i class="fas fa-user fa-3x"></i>
                   <br />
                   <br />
                   <a class="card-text text-perfil"
@@ -59,7 +59,7 @@
                         <td>Credencial</td>
                         <td class="boldUsuario">{{ data.PERNR }}</td>
                         <td>E-mail</td>
-                        <td class="boldUsuario">{{data.CORREO}}</td>
+                        <td class="boldUsuario">{{ data.CORREO }}</td>
                       </tr>
                       <tr>
                         <td>CURP</td>

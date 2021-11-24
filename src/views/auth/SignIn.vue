@@ -13,7 +13,12 @@
             </div>
             <div class="card-body">
               <form @submit.prevent="submit">
-                <h5 class="text-left font-weight-light" style="font-weight:bolder;">LOGIN</h5>
+                <h5
+                  class="text-left font-weight-light"
+                  style="font-weight: bolder"
+                >
+                  LOGIN
+                </h5>
                 <div class="alert alert-danger" role="alert" v-if="hasError">
                   {{ msg }}
                 </div>
@@ -30,7 +35,7 @@
                     required=""
                     autofocus
                   />
-                  <label for="inputEmail">Usuario</label>
+                  <label for="inputEmail">No. Empleado</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input
@@ -55,10 +60,10 @@
                   </div>
                 </div>
                 <div class="centerItems">
-                  <div class="small ">
-                    <a href="#" class="buzonColor"
-                      >¿Has olvidado tu contraseña?</a
-                    >
+                  <div class="small" style="text-align: left; margin-top: 10px">
+                    <router-link :to="{ name: 'Register' }" class="buzonColor">
+                      Registrarme
+                    </router-link>
                   </div>
                   <br />
                   <button type="submit" class="btn btn-portal btn-lg btn-block">
@@ -68,7 +73,7 @@
               </form>
             </div>
             <div class="card-footer text-center py-3">
-              <a>V. 1.0.</a>
+              <a>v. 1.0.0</a>
             </div>
           </div>
         </div>
@@ -101,10 +106,10 @@ export default {
     ...mapActions({
       signIn: "auth/signIn",
     }),
-    onVerify: function(response) {
+    onVerify: function (response) {
       this.recaptcha = response;
     },
-    onExpired: function() {
+    onExpired: function () {
       this.recaptcha = null;
     },
     submit() {

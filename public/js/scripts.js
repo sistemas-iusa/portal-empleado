@@ -1,13 +1,21 @@
 /*!
-    * Start Bootstrap - SB Admin v7.0.3 (https://startbootstrap.com/template/sb-admin)
-    * Copyright 2013-2021 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
-    */
-    // 
+ * Start Bootstrap - SB Admin v7.0.3 (https://startbootstrap.com/template/sb-admin)
+ * Copyright 2013-2021 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
+ */
+//
 // Scripts
-// 
+//
 
-window.addEventListener('DOMContentLoaded', event => {
+$(document).on("click", "#sidebarToggle, #sidebarToggleTop", function (e) {
+  $("body").toggleClass("sb-sidenav-toggled");
+  $(".sidebar").toggleClass("toggled");
+  if ($(".sidebar").hasClass("toggled")) {
+    $(".sidebar .collapse").collapse("hide");
+  }
+});
+
+/* window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
@@ -22,5 +30,4 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
-
-});
+}); */

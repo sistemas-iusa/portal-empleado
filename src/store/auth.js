@@ -38,7 +38,7 @@ export default {
       return dispatch("attempt", response.data.token);
     },
     async attempt({ commit, state }, token) {
-      console.log(token);
+      //console.log(token);
       if (token) {
         commit("SET_TOKEN", token);
       }
@@ -55,10 +55,11 @@ export default {
         commit("SET_ROLE", null);
       }
     },
-    signOut({ commit }) {
-      commit("SET_TOKEN", null);
-      commit("SET_USER", null);
-      commit("SET_ROLE", null);
+    async signOut({ commit }) {
+      return axios.post("signout").then(() => {
+        commit("SET_TOKEN", null);
+        commit("SET_USER", null);
+      });
     },
   },
 };

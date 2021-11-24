@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import HomeOffice from "../views/HomeOffice.vue";
 import SignIn from "../views/auth/SignIn.vue";
-import EvaluacionPersonal from "../views/EvaluacionPersonal.vue";
+import Register from "../views/auth/Register.vue";
+import NotFound from "../views/auth/404.vue";
 import WeeklyEvaluation from "../views/weekly_evaluation/WeeklyEvaluation.vue";
 import Receipt from "../views/receipt/Receipt.vue";
 import UserProfile from "../views/user_profile/UserProfile.vue";
@@ -16,6 +17,19 @@ const routes = [
     path: "/",
     name: "SignIn",
     component: SignIn,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+        return next({
+          name: "Home",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: Register,
     beforeEnter: (to, from, next) => {
       if (store.getters["auth/authenticated"]) {
         return next({
@@ -42,19 +56,6 @@ const routes = [
     path: "/home-office",
     name: "HomeOffice",
     component: HomeOffice,
-    beforeEnter: (to, from, next) => {
-      if (!store.getters["auth/authenticated"]) {
-        return next({
-          name: "SignIn",
-        });
-      }
-      next();
-    },
-  },
-  {
-    path: "/evaluacion-personal",
-    name: "EvaluacionPersonal",
-    component: EvaluacionPersonal,
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
         return next({
@@ -104,13 +105,42 @@ const routes = [
     },
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/meeting-room",
+    component: () => import("@/views/meeting_room/layout/Layout.vue"),
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+    children: [
+      {
+        path: "/",
+        name: "MeetingRoom",
+        component: () => import("@/views/meeting_room/MeetingRoom.vue"),
+      },
+      {
+        path: "reservations",
+        name: "Reservations",
+        component: () =>
+          import("@/views/meeting_room/reservations/Reservations.vue"),
+      },
+    ],
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: NotFound,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
   },
 ];
 

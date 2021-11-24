@@ -1,32 +1,45 @@
 <template>
-  <h6>{{ data }}</h6>
+  <div class="row">
+    <div class="col-xl-12" id="content-areas">
+      <div v-for="(item, index) in data" :key="item.id">
+        <bar-chart :chartdata="data[index]"></bar-chart>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import BarChart from "./chartjs/BarChartAreas.js";
+
 export default {
+  components: {
+    BarChart,
+  },
+  props: {
+    weekSelect: {
+      type: Number,
+      default: null,
+    },
+  },
   data() {
     return {
       data: null,
       error: null,
     };
   },
-  async mounted() {
-    let self = this;
-    self.getPerformance();
-  },
-  methods: {
-    async getPerformance() {
-      let self = this;
-      await axios
-        .post("hoAreas", {
-          id_poll: 72,
+  watch: {
+    weekSelect: function (val) {
+      this.data = null;
+      axios
+        .post("/hoAreas", {
+          id_poll: val,
         })
-        .then(function(response) {
-          self.data = response.data;
+        .then((response) => {
+          this.data = response.data;
         })
-        .catch(function(error) {
-          this.error = error;
+        .catch((e) => {
+          console.log(e);
         });
     },
   },
