@@ -131,11 +131,13 @@
                     :class="{ active: role[0].contingency }"
                     v-if="role[0].contingency"
                   >
-                    <img
-                      class="d-block w-100 imaCarouselHeight"
-                      :src="'img/banner_01.png'"
-                      alt="First slide"
-                    />
+                    <router-link :to="{ name: 'PersonalEvaluation' }">
+                      <img
+                        class="d-block w-100 imaCarouselHeight"
+                        :src="'img/banner_01.png'"
+                        alt="First slide"
+                      />
+                    </router-link>
                   </div>
                   <div
                     class="carousel-item"
@@ -148,6 +150,13 @@
                         alt="Second slide"
                       />
                     </router-link>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      class="d-block w-100 imaCarouselHeight"
+                      :src="'img/banner_ho_03.png'"
+                      alt="Second slide"
+                    />
                   </div>
                 </div>
                 <button

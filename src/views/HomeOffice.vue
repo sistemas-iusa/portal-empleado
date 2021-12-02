@@ -7,9 +7,9 @@
       </ol>
       <div class="row">
         <div class="col-xl-6" style="text-align: center">
-          <!-- <router-link :to="{ name: 'EvaluacionPersonal' }"> -->
-          <img :src="'img/banner_ho_01.png'" class="card-link" />
-          <!-- </router-link> -->
+          <router-link :to="{ name: 'PersonalEvaluation' }">
+            <img :src="'img/banner_ho_01.png'" class="card-link" />
+          </router-link>
         </div>
         <div class="col-xl-6" style="text-align: center">
           <router-link :to="{ name: 'WeeklyEvaluation' }">

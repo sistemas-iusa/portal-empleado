@@ -192,11 +192,11 @@ export default {
 
 <style scoped>
 .router-link-exact-active .sb-nav-link-icon {
-  color: #000 !important;
+  color: #0d6efd !important;
   font-weight: 700;
 }
 .router-link-exact-active {
-  color: #000 !important;
+  color: #0d6efd !important;
   font-weight: 700;
 }
 </style>

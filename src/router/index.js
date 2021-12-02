@@ -6,6 +6,7 @@ import SignIn from "../views/auth/SignIn.vue";
 import Register from "../views/auth/Register.vue";
 import NotFound from "../views/auth/404.vue";
 import WeeklyEvaluation from "../views/weekly_evaluation/WeeklyEvaluation.vue";
+import PersonalEvaluation from "../views/personal_evaluation/PersonalEvaluation.vue";
 import Receipt from "../views/receipt/Receipt.vue";
 import UserProfile from "../views/user_profile/UserProfile.vue";
 import store from "@/store";
@@ -56,6 +57,19 @@ const routes = [
     path: "/home-office",
     name: "HomeOffice",
     component: HomeOffice,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/personal-evaluation",
+    name: "PersonalEvaluation",
+    component: PersonalEvaluation,
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
         return next({
