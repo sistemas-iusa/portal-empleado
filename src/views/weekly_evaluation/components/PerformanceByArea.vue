@@ -5,16 +5,21 @@
         <bar-chart :chartdata="data[index]"></bar-chart>
       </div>
     </div>
+    <p></p>
+    <div class="col-xl-12">
+      <CommentsByArea :weekSelect="weekSelect"></CommentsByArea>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import BarChart from "./chartjs/BarChartAreas.js";
-
+import CommentsByArea from "./CommentsByArea.vue";
 export default {
   components: {
     BarChart,
+    CommentsByArea,
   },
   props: {
     weekSelect: {

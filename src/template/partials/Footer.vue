@@ -6,7 +6,7 @@
           Copyright &copy; 2021 Grupo IUSA. Todos los Derechos Reservados.
         </div>
         <div>
-          <a href="#" style="color: red;">Aviso de Privacidad</a>
+          <a :href="'pdf/aviso_privacidad.pdf'" style="color: red" target="_blank">Aviso de Privacidad</a>
         </div>
       </div>
     </div>

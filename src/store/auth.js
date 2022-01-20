@@ -33,9 +33,25 @@ export default {
   },
 
   actions: {
-    async signIn({ dispatch }, credentials) {
+    /* async signIn({ dispatch }, credentials) {
       let response = await axios.post("signin", credentials);
       return dispatch("attempt", response.data.token);
+    }, */
+    /* async signIn({ dispatch }, credentials) {
+      let response = await axios.post("signin", credentials);
+      if (response.data.token) {
+        return dispatch("attempt", response.data.token);
+      } else {
+        return "no";
+      }
+    }, */
+    async signIn({ dispatch }, credentials) {
+      let response = await axios.post("signin", credentials);
+      if (response.data.token) {
+        return dispatch("attempt", response.data.token);
+      } else {
+        return response.data.message;
+      }
     },
     async attempt({ commit, state }, token) {
       //console.log(token);

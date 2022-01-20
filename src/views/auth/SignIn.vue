@@ -18,9 +18,15 @@
                   style="font-weight: bolder"
                 >
                   LOGIN
+                  <p></p>
                 </h5>
-                <div class="alert alert-danger" role="alert" v-if="hasError">
-                  {{ msg }}
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  v-if="hasError"
+                  style="font-weight: 500"
+                >
+                  {{ msg }}.
                 </div>
                 <div class="form-floating mb-3">
                   <input
@@ -61,10 +67,28 @@
                 </div>
                 <div class="centerItems">
                   <div class="small" style="text-align: left; margin-top: 10px">
+                    <label style="font-weight: 400"
+                      >¿No tienes cuenta? Regístrate&nbsp;</label
+                    >
                     <router-link :to="{ name: 'Register' }" class="buzonColor">
-                      Registrarme
+                      <a style="font-weight: 500">aquí</a>
                     </router-link>
                   </div>
+                  <div style="text-align: center; margin-top: 10px">
+                    <router-link
+                      :to="{ name: 'ForgottenPassword' }"
+                      class="buzonColor"
+                    >
+                      <a style="font-weight: 500">¿Olvidaste tu contraseña?</a>
+                    </router-link>
+                  </div>
+                  <!-- <p></p>
+                  <router-link
+                    :to="{ name: 'ForgottenPassword' }"
+                    class="buzonColor"
+                  >
+                    Olvide mi contraseña
+                  </router-link> -->
                   <br />
                   <button type="submit" class="btn btn-portal btn-lg btn-block">
                     {{ procesando ? "Validando..." : "Ingresar" }}
@@ -116,11 +140,27 @@ export default {
       if (this.recaptcha != null) {
         this.procesando = true;
         this.signIn(this.form)
-          .then(() => {
+          .then((response) => {
+            console.log(response);
+            if (response) {
+              this.msg = response;
+              this.procesando = false;
+              this.hasError = true;
+              setTimeout(() => {
+                this.hasError = false;
+              }, 5000);
+              this.form.password = null;
+            } else {
+              this.$router.replace({
+                name: "Home",
+              });
+            }
+          })
+          /*.then(() => {
             this.$router.replace({
               name: "Home",
             });
-          })
+          })*/
           .catch(() => {
             this.msg = "Usuario y/o contraseña incorrectos";
             this.procesando = false;

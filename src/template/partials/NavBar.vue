@@ -28,7 +28,7 @@
         my-2 my-md-0
       "
     >
-      <div class="input-group rounded">
+      <!-- <div class="input-group rounded">
         <input
           type="search"
           class="form-control rounded"
@@ -39,10 +39,10 @@
         <span class="input-group-text border-0" id="search-addon">
           <i class="fas fa-search"></i>
         </span>
-      </div>
+      </div> -->
     </form>
     <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <!-- <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <router-link
           :to="{ name: 'UserProfile' }"
@@ -55,17 +55,20 @@
           <i class="fas fa-user fa-fw"></i
         ></router-link>
       </li>
-    </ul>
+    </ul> -->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
-        <a
+        <router-link
+          :to="{ name: 'UserProfile' }"
           class="nav-link"
           id="navbarDropdown"
-          href="#"
           role="button"
           aria-expanded="false"
-          ><i class="far fa-bell"></i
-        ></a>
+          ><!-- <i class="far fa-bell"></i
+        > -->
+        <i class="fas fa-user fa-fw"></i
+        >
+        </router-link>
       </li>
       <a
         class="btn btn-portal btn-md btn-block"

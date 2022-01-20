@@ -1,7 +1,7 @@
 <template>
   <div class="row" v-if="data">
     <div class="marginCardsText justify-text-div" v-if="data.length != 0">
-      <h5 class="card-icon-text-2">Comentarios</h5>
+      <h5 class="card-icon-text-2" v-if="seccion_select != 6">Comentarios</h5>
       <br />
       <p
         class="card-text"
@@ -41,6 +41,7 @@ export default {
         })
         .then((response) => {
           this.data = response.data;
+          console.log(this.data);
         })
         .catch((e) => {
           console.log(e);

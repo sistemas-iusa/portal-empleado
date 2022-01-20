@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container-fluid px-4">
-      <h3 class="mt-4">RECIBOS DE NOMINA</h3>
+      <h3 class="mt-4">RECIBOS DE NÓMINA</h3>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active"></li>
       </ol>
@@ -15,13 +15,22 @@
         <div class="col-xl-3" v-for="(item, index) in data" :key="index">
           <div class="card mb-3">
             <div
-              class="card-header text-white bg-secondary centerItems card-icon-text-3"
+              class="
+                card-header
+                text-white
+                bg-secondary
+                centerItems
+                card-icon-text-3
+              "
             >
               {{ item.month_name }} {{ item.year }}
             </div>
             <table>
               <tbody>
-                <tr class="card-bg-stripe" style="background:rgba(0,0,0,.075);">
+                <tr
+                  class="card-bg-stripe"
+                  style="background: rgba(0, 0, 0, 0.075)"
+                >
                   <td class="centerItems pad-tbl-card">
                     {{ item.fortnight_2 }}a Quincena
                   </td>
@@ -89,10 +98,10 @@ export default {
           year: item.year,
           type: type,
         })
-        .then(function(response) {
+        .then(function (response) {
           window.open(response.data);
         })
-        .catch(function(error) {
+        .catch(function (error) {
           console.log(error);
         });
     },
