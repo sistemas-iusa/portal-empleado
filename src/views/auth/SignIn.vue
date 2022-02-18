@@ -141,7 +141,7 @@ export default {
         this.procesando = true;
         this.signIn(this.form)
           .then((response) => {
-            console.log(response);
+            //console.log(response);
             if (response) {
               this.msg = response;
               this.procesando = false;

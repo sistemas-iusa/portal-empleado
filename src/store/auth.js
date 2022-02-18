@@ -77,5 +77,8 @@ export default {
         commit("SET_USER", null);
       });
     },
+    changeUser(context, data) {
+      context.commit("SET_USER", data);
+    },
   },
 };

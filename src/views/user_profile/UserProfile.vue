@@ -17,15 +17,44 @@
               <div class="row">
                 <div class="col-xl-12 centerItems">
                   <!--<img src="" />-->
-                  <h5 class="card-title">
+                  <h5 class="card-title" style="font-weight: 700">
                     {{ data.VORNA }} {{ data.NACHN }} {{ data.NACH2 }}
                   </h5>
-                  <i class="fas fa-user fa-3x"></i>
-                  <br />
-                  <br />
-                  <a class="card-text text-perfil"
-                    ><i class="fas fa-pen"></i> Editar</a
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    v-if="hasError"
+                    style="font-weight: 500"
                   >
+                    {{ msg }}.
+                  </div>
+                  <p></p>
+                  <!-- <i class="fas fa-user fa-3x"></i>
+                  <br /> -->
+                  <img
+                    :src="
+                      'https://api-empleado.iusa.com.mx/' + user.image_profile
+                    "
+                    style="border-radius: 50%"
+                    width="124px;"
+                  />
+                  <br />
+                  <a
+                    class="card-text text-perfil"
+                    style="font-weight: 700; color: #000"
+                    @click="
+                      () => {
+                        trigger = true;
+                      }
+                    "
+                    ><p></p>
+                    <i class="fas fa-pen"></i> Editar</a
+                  >
+                  <avatar-cropper
+                    v-model="trigger"
+                    :upload-handler="cropperHandler"
+                    @error="handleError"
+                  />
                 </div>
               </div>
               <div class="row">
@@ -76,50 +105,7 @@
                     </tbody>
                   </table>
                 </div>
-                <!-- <h5 class="card-title cellContainer">DATOS CONTACTO</h5>
-                <div class="col-xl-12">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>E-mail</td>
-                        <td class="boldUsuario">jarreguin@iusa.com.mx</td>
-                        <td>Usuario Skype</td>
-                        <td class="boldUsuario">pepe.arreguin</td>
-                      </tr>
-                      <tr>
-                        <td>Celular</td>
-                        <td class="boldUsuario">5569743011</td>
-                        <td>Teléfono fijo</td>
-                        <td class="boldUsuario">5558713459</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <h5 class="card-title cellContainer">DATOS COMPLEMENTARIOS</h5>
-                <div class="col-xl-12">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Distancia de casa a la oficina</td>
-                        <td class="boldUsuario">1 - 5 km</td>
-                        <td>Lugar para trabajar</td>
-                        <td class="boldUsuario">
-                          Otra casa de familiar o amigo
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Velocidad de internet</td>
-                        <td class="boldUsuario">100 MB</td>
-                        <td>Laptop</td>
-                        <td class="boldUsuario">Si</td>
-                      </tr>
-                      <tr>
-                        <td>Correo personal</td>
-                        <td class="boldUsuario">arreguinpepe@gmail.com</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>-->
+                <fiscal-identification-data></fiscal-identification-data>
               </div>
             </div>
           </div>
@@ -131,21 +117,87 @@
 
 <script>
 import axios from "axios";
+import AvatarCropper from "vue-avatar-cropper";
+import FiscalIdentificationData from "./components/FiscalIdentificationData.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "UserProfile",
+  components: { AvatarCropper, FiscalIdentificationData },
+  computed: {
+    ...mapGetters({
+      user: "auth/user",
+    }),
+  },
   data() {
     return {
       data: null,
+      trigger: false,
+      hasError: false,
+      msg: null,
     };
   },
   async mounted() {
     this.recargarListado();
   },
   methods: {
+    ...mapActions({
+      changeUser: "auth/changeUser",
+    }),
     async recargarListado() {
       await axios
         .get("getProfile")
         .then((response) => (this.data = response.data));
+    },
+    cropperHandler(cropper) {
+      let imgdat = cropper.getCroppedCanvas().toDataURL(this.cropperOutputMime);
+      console.log(imgdat);
+      let file = this.dataURLtoFile(imgdat, "profile_image.png");
+      let formData = new FormData();
+      formData.append("imagen", file);
+      axios
+        .post("changeImage", formData)
+        .then((response) => {
+          /* alert("Imagen cambiada correctamente");
+          this.changeUser(response.data);*/
+          if (response.data.errors) {
+            this.msg = response.data.errors;
+            this.hasError = true;
+            setTimeout(() => {
+              this.hasError = false;
+            }, 5000);
+          } else {
+            this.$swal({
+              title: "Imagen actualizada..",
+              icon: "success",
+            });
+            this.changeUser(response.data);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => (this.loading = false));
+    },
+    dataURLtoFile(dataurl, filename) {
+      let arr = dataurl.split(","),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]),
+        n = bstr.length,
+        u8arr = new Uint8Array(n);
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+      }
+      return new File([u8arr], filename, { type: mime });
+    },
+    handleError({ message }) {
+      console.log(message);
+      if (message == "File type not correct") {
+        this.msg = "El tipo de archivo no es correcto.";
+        this.hasError = true;
+        setTimeout(() => {
+          this.hasError = false;
+        }, 5000);
+      }
     },
   },
 };

@@ -307,6 +307,25 @@ const routes = [
     },
   },
   {
+    path: "/vacation-request",
+    component: () => import("@/views/vacation_request/layout/Layout.vue"),
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+    children: [
+      {
+        path: "/",
+        name: "VacationRequest",
+        component: () => import("@/views/vacation_request/VacationRequest.vue"),
+      },
+    ],
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: NotFound,

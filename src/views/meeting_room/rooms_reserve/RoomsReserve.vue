@@ -217,10 +217,20 @@ export default {
       const year = d.getFullYear();
       this.date_today = year + "-" + month + "-" + day;
     },*/
-    getDateNow() {
+    /* getDateNow() {
       const d = new Date();
       const day = ("0" + d.getDate()).slice(-2);
       const month = ("0" + d.getMonth() + 1).slice(-2);
+      const year = d.getFullYear();
+      this.date_today = year + "-" + month + "-" + day;
+      this.date = year + "-" + month + "-" + day;
+    },*/
+    getDateNow() {
+      const d = new Date();
+      const day = ("0" + d.getDate()).slice(-2);
+      let mont_val = parseInt(d.getMonth());
+      mont_val = mont_val + 1;
+      const month = ("0" + mont_val).slice(-2);
       const year = d.getFullYear();
       this.date_today = year + "-" + month + "-" + day;
       this.date = year + "-" + month + "-" + day;

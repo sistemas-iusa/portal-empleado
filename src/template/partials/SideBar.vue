@@ -60,7 +60,7 @@
               >
               <a
                 class="nav-link"
-                href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml"
+                href="http://sisvia.iusa.com.mx/"
                 target="_blank"
                 >Reg. de Gastos de Viaje</a
               >
@@ -154,9 +154,9 @@
                     class="nav-link"
                     :href="
                       'https://contingencia.iusa.com.mx/validar_portal.php?e=' +
-                      email +
+                      user.email +
                       '&c=' +
-                      employee_code
+                      user.employee_code
                     "
                     target="_blank"
                   >
@@ -369,7 +369,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  mounted() {
+  beforeCreate() {
     this.encode();
   },
   data() {

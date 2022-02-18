@@ -57,17 +57,34 @@
       </li>
     </ul> -->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <router-link
           :to="{ name: 'UserProfile' }"
           class="nav-link"
           id="navbarDropdown"
           role="button"
           aria-expanded="false"
-          ><!-- <i class="far fa-bell"></i
+          > --><!-- <i class="far fa-bell"></i
         > -->
-        <i class="fas fa-user fa-fw"></i
+        <!-- <i class="fas fa-user fa-fw"></i
         >
+        </router-link> 
+      </li>-->
+      <li class="nav-item dropdown">
+        <router-link
+          :to="{ name: 'UserProfile' }"
+          class="nav-link"
+          id="navbarDropdown"
+          href="#"
+          role="button"
+          aria-expanded="false"
+        >
+          <img
+              :src="'https://api-empleado.iusa.com.mx/' + user.image_profile"
+              alt=""
+              style="border-radius: 50%;margin-top:-10px;margin-bottom:-5px;"
+              width="36px;"
+            />
         </router-link>
       </li>
       <a

@@ -25,7 +25,7 @@
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link">
             <a
-              href="http://viaticos.iusa.com.mx:8081/neonsh/modulos/login/login.xhtml"
+              href="http://sisvia.iusa.com.mx/"
               class="text-white"
               target="_blank"
             >
@@ -59,6 +59,7 @@
         </div>
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link cinta">
+            <!-- <router-link :to="{ name: 'VacationRequest' }"> -->
             <blockquote class="blockquote mb-0">
               <a href="#" class="text-black"
                 ><i class="fas fa-suitcase-rolling fa-2x"></i
@@ -71,6 +72,7 @@
                 </small>
               </footer>
             </blockquote>
+            <!-- </router-link> -->
           </div>
         </div>
         <div class="col-xl-2">
@@ -191,16 +193,16 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-3" v-if="role[0].contingency">
-          <div class="card">
+        <div class="col-xl-3">
+          <div class="card" v-if="role[0].contingency">
             <div class="card-body">
               <a
                 class="text-black"
                 :href="
                   'https://contingencia.iusa.com.mx/validar_portal.php?e=' +
-                  email +
+                  user.email +
                   '&c=' +
-                  employee_code
+                  user.employee_code
                 "
                 target="_blank"
               >
@@ -1288,6 +1290,7 @@ export default {
   },
   methods: {
     encode() {
+      console.log(this.user);
       this.email = btoa(this.user.email);
       this.employee_code = btoa(this.user.employee_code);
     },

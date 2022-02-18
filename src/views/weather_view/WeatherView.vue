@@ -22,9 +22,9 @@
       </div>
       <div class="row centerItems" v-else>
         <span class="card-icon-text-2" style="font-size: 12px">
-          <span
-            >{{msg}}</span
-          >
+          <span style="font-weight: 700"
+            >{{ msg }} <i class="fa fa-map-marker-alt"></i
+          ></span>
         </span>
       </div>
     </div>
@@ -42,7 +42,7 @@ export default {
       weather_name: "",
       weather_icon_name: "",
       weather_country: "",
-      msg: ""
+      msg: "",
     };
   },
   async mounted() {
@@ -94,7 +94,8 @@ export default {
               .finally(() => {});
           },
           () => {
-            this.msg = "Para visualizar el pronostico de clima en su ciudad, permita el acceso a su ubicación";
+            this.msg =
+              "Para visualizar el pronostico de clima en su ciudad, permita el acceso a su ubicación";
           },
           {
             enableHighAccuracy: true,
