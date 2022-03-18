@@ -66,7 +66,7 @@
           aria-expanded="false"
           > --><!-- <i class="far fa-bell"></i
         > -->
-        <!-- <i class="fas fa-user fa-fw"></i
+      <!-- <i class="fas fa-user fa-fw"></i
         >
         </router-link> 
       </li>-->
@@ -80,11 +80,11 @@
           aria-expanded="false"
         >
           <img
-              :src="'https://api-empleado.iusa.com.mx/' + user.image_profile"
-              alt=""
-              style="border-radius: 50%;margin-top:-10px;margin-bottom:-5px;"
-              width="36px;"
-            />
+            :src="'https://api-empleado.iusa.com.mx/' + user.image_profile"
+            alt=""
+            style="border-radius: 50%; margin-top: -10px; margin-bottom: -5px"
+            width="36px;"
+          />
         </router-link>
       </li>
       <a

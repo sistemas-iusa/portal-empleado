@@ -148,7 +148,7 @@
                     :to="{ name: 'HomeOffice' }"
                     class="nav-link"
                     v-if="role[0].contingency"
-                    >Evaluaciones</router-link
+                    >Conclusiones de Evaluaciones</router-link
                   >
                   <a
                     class="nav-link"

@@ -1,5 +1,6 @@
 <template>
   <main>
+    <AlertFiscalData :capturedUser="alertFiscal" :warn="closeAlertFiscal" />
     <div class="container-fluid px-4" v-if="data">
       <h3 class="mt-4">MI PERFIL</h3>
       <!-- {{data}} -->
@@ -16,7 +17,6 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-xl-12 centerItems">
-                  <!--<img src="" />-->
                   <h5 class="card-title" style="font-weight: 700">
                     {{ data.VORNA }} {{ data.NACHN }} {{ data.NACH2 }}
                   </h5>
@@ -73,7 +73,7 @@
                       <tr>
                         <td>Sexo</td>
                         <td class="boldUsuario">{{ data.BEZEI }}</td>
-                        <td>Estado Civil</td>
+                        <td>Estado civil</td>
                         <td class="boldUsuario">{{ data.TEXT2 }}</td>
                       </tr>
                       <tr>
@@ -91,13 +91,13 @@
                         <td class="boldUsuario">{{ data.CORREO }}</td>
                       </tr>
                       <tr>
-                        <td>CURP</td>
+                        <td>Curp</td>
                         <td class="boldUsuario">{{ data.PERID }}</td>
-                        <td>RFC</td>
+                        <td>Rfc</td>
                         <td class="boldUsuario">{{ data.ICNUM }}</td>
                       </tr>
                       <tr>
-                        <td>IMSS</td>
+                        <td>Imss</td>
                         <td class="boldUsuario">{{ data.NIMSS }}</td>
                         <td>Sociedad</td>
                         <td class="boldUsuario">{{ data.BUKRS }}</td>
@@ -119,10 +119,11 @@
 import axios from "axios";
 import AvatarCropper from "vue-avatar-cropper";
 import FiscalIdentificationData from "./components/FiscalIdentificationData.vue";
+import AlertFiscalData from "./components/AlertFiscalData.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "UserProfile",
-  components: { AvatarCropper, FiscalIdentificationData },
+  components: { AvatarCropper, FiscalIdentificationData, AlertFiscalData },
   computed: {
     ...mapGetters({
       user: "auth/user",
@@ -134,10 +135,17 @@ export default {
       trigger: false,
       hasError: false,
       msg: null,
+      alertFiscal: null,
     };
   },
   async mounted() {
     this.recargarListado();
+  },
+  beforeRouteLeave: function (to, from, next) {
+    if (this.user && this.user.fiscal == null && to.name != "SignIn") {
+      this.alertFiscal = "otro";
+    }
+    next();
   },
   methods: {
     ...mapActions({
@@ -147,10 +155,16 @@ export default {
       await axios
         .get("getProfile")
         .then((response) => (this.data = response.data));
+      if (this.user.fiscal == null) {
+        this.alertFiscal = "ok";
+      }
+    },
+    closeAlertFiscal(data) {
+      this.alertFiscal = data;
     },
     cropperHandler(cropper) {
       let imgdat = cropper.getCroppedCanvas().toDataURL(this.cropperOutputMime);
-      console.log(imgdat);
+      //console.log(imgdat);
       let file = this.dataURLtoFile(imgdat, "profile_image.png");
       let formData = new FormData();
       formData.append("imagen", file);
@@ -174,7 +188,7 @@ export default {
           }
         })
         .catch((error) => {
-          console.log(error);
+          alert(error);
         })
         .finally(() => (this.loading = false));
     },
@@ -190,7 +204,7 @@ export default {
       return new File([u8arr], filename, { type: mime });
     },
     handleError({ message }) {
-      console.log(message);
+      alert(message);
       if (message == "File type not correct") {
         this.msg = "El tipo de archivo no es correcto.";
         this.hasError = true;

@@ -83,6 +83,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -95,6 +99,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();
@@ -109,6 +117,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -122,6 +134,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -134,6 +150,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();
@@ -161,6 +181,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -173,6 +197,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();
@@ -187,6 +215,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -200,6 +232,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -212,6 +248,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();
@@ -249,6 +289,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();
@@ -302,6 +346,10 @@ const routes = [
         return next({
           name: "SignIn",
         });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
       }
       next();
     },
@@ -313,6 +361,10 @@ const routes = [
       if (!store.getters["auth/authenticated"]) {
         return next({
           name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
         });
       }
       next();

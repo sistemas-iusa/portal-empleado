@@ -59,7 +59,7 @@
         </div>
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link cinta">
-            <!-- <router-link :to="{ name: 'VacationRequest' }"> -->
+            <router-link :to="{ name: 'VacationRequest' }">
             <blockquote class="blockquote mb-0">
               <a href="#" class="text-black"
                 ><i class="fas fa-suitcase-rolling fa-2x"></i
@@ -72,7 +72,7 @@
                 </small>
               </footer>
             </blockquote>
-            <!-- </router-link> -->
+            </router-link>
           </div>
         </div>
         <div class="col-xl-2">
