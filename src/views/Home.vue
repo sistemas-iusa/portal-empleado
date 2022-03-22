@@ -60,18 +60,18 @@
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link cinta">
             <router-link :to="{ name: 'VacationRequest' }">
-            <blockquote class="blockquote mb-0">
-              <a href="#" class="text-black"
-                ><i class="fas fa-suitcase-rolling fa-2x"></i
-              ></a>
-              <footer class="card-icon-text">
-                <small>
-                  <a href="#" class="card-icon-text-3 text-black"
-                    >Solicitud<br />Vacaciones</a
-                  >
-                </small>
-              </footer>
-            </blockquote>
+              <blockquote class="blockquote mb-0">
+                <a href="#" class="text-black"
+                  ><i class="fas fa-suitcase-rolling fa-2x"></i
+                ></a>
+                <footer class="card-icon-text">
+                  <small>
+                    <a href="#" class="card-icon-text-3 text-black"
+                      >Solicitud<br />Vacaciones</a
+                    >
+                  </small>
+                </footer>
+              </blockquote>
             </router-link>
           </div>
         </div>

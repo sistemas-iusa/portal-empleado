@@ -16,7 +16,7 @@ require("@/store/subscriber");
 
 //axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
 
-axios.defaults.baseURL = "https://api-empleado.iusa.com.mx/api";
+axios.defaults.baseURL = "https://dev.api-empleado.iusa.com.mx/api";
 
 Vue.config.productionTip = false;
 

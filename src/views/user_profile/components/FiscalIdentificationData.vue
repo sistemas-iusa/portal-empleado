@@ -33,7 +33,7 @@
           <tr>
             <td>Rfc</td>
             <td class="bold">{{ fiscalData.rfc }}</td>
-            <td>Distrito</td>
+            <td>Colonia</td>
             <td class="bold">
               {{ fiscalData.district }}
             </td>
@@ -63,12 +63,18 @@
             </td>
           </tr>
           <tr>
-            <td>Calle y número</td>
-            <td class="bold">{{ fiscalData.street_number }}</td>
+            <td>Calle</td>
+            <td class="bold">{{ fiscalData.street_name }}</td>
             <td>Clave de país</td>
             <td class="bold">
               {{ fiscalData.country_key }}
             </td>
+          </tr>
+          <tr>
+            <td>Número exterior</td>
+            <td class="bold">{{ fiscalData.street_number }}</td>
+            <td>Número interior</td>
+            <td class="bold">{{ fiscalData.edifice_number }}</td>
           </tr>
           <!-- <tr>
             <td>No. Edificio</td>
@@ -94,7 +100,7 @@
           </div>
         </div>
         <div class="col-xl-6">
-          <div class="col-sm-12 bold spacing">Distrito</div>
+          <div class="col-sm-12 bold spacing">Colonia</div>
           <div class="col-sm-12">
             <input
               v-if="edit"
@@ -227,16 +233,16 @@
           </div>
         </div> -->
         <div class="col-xl-6">
-          <div class="col-sm-12 bold spacing">Calle y número:</div>
+          <div class="col-sm-12 bold spacing">Calle:</div>
           <div class="col-sm-12">
             <input
               v-if="edit"
               type="text"
-              v-model="fiscalData.street_number"
+              v-model="fiscalData.street_name"
               class="form-control"
               @change="
-                fiscalData.street_number = filtroCaracter(
-                  fiscalData.street_number
+                fiscalData.street_name = filtroCaracter(
+                  fiscalData.street_name
                 )
               "
             />
@@ -252,6 +258,38 @@
               class="form-control"
               @change="
                 fiscalData.country_key = filtroCaracter(fiscalData.country_key)
+              "
+            />
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <div class="col-sm-12 bold spacing">Número exterior</div>
+          <div class="col-sm-12">
+            <input
+              v-if="edit"
+              type="text"
+              v-model="fiscalData.street_number"
+              class="form-control"
+              @change="
+                fiscalData.street_number = filtroCaracter(
+                  fiscalData.street_number
+                )
+              "
+            />
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <div class="col-sm-12 bold spacing">Número interior</div>
+          <div class="col-sm-12">
+            <input
+              v-if="edit"
+              type="text"
+              v-model="fiscalData.edifice_number"
+              class="form-control"
+              @change="
+                fiscalData.edifice_number = filtroCaracter(
+                  fiscalData.edifice_number
+                )
               "
             />
           </div>
@@ -357,7 +395,8 @@ export default {
             second_lastname: this.filtroCaracter(this.data.NACH2),
             post_code: this.filtroCaracter(this.data.PSTLZ),
             telephone: this.filtroCaracter(this.data.TELNR),
-            street_number: this.filtroCaracter(this.data.STRAS),
+            street_name: this.filtroCaracter(this.data.STRAS),
+            street_number: this.filtroCaracter(this.data.POSTA),
             edifice_number: this.filtroCaracter(this.data.HSNMR),
             district: this.filtroCaracter(this.data.ORT02),
             city: this.filtroCaracter(this.data.ORT01),
@@ -434,7 +473,7 @@ export default {
         this.fiscalData.second_lastname == "" ||
         this.fiscalData.post_code == "" ||
         this.fiscalData.telephone == "" ||
-        this.fiscalData.street_number == "" ||
+        this.fiscalData.street_name == "" ||
         this.fiscalData.district == "" ||
         this.fiscalData.city == "" ||
         this.fiscalData.region == "" ||
