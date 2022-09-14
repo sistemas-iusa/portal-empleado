@@ -136,6 +136,7 @@
                   <br />
                   <div class="form-group centerItems">
                     <button
+                      :disabled="!meeting_name"
                       class="btn btn-portal btn-lg"
                       @click="MRoomSaveRequest()"
                     >
@@ -286,6 +287,9 @@ export default {
                 title: response.data[0].mesage,
                 icon: "success",
               });
+            } else {
+              //ojo
+              alert(response.data[0].mesage);
             }
           })
           .catch((e) => {

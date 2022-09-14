@@ -47,8 +47,10 @@
               <router-link :to="{ name: 'Receipt' }" class="nav-link"
                 >Recibos de Nómina</router-link
               >
-              <a class="nav-link" href="#" style="font-size: 12px"
-                >Solicitud de Vacaciones<span
+              <router-link :to="{ name: 'Vacation' }" class="nav-link">
+                <!-- <a href="#" class="nav-link"> -->
+                Propuesta de Vacaciones
+                <!-- <span
                   class="badge badge-info"
                   style="
                     color: #fff;
@@ -56,8 +58,9 @@
                     font-size: 10px;
                   "
                   >Próximamente</span
-                ></a
-              >
+                > -->
+                <!-- </a> -->
+              </router-link>
               <a
                 class="nav-link"
                 href="http://sisvia.iusa.com.mx/"
@@ -195,6 +198,9 @@
                 href="https://www.tiendaiusa.com/?gclid=CjwKCAiAhreNBhAYEiwAFGGKPHVDFJx8-v99dL-UA1JeoBdI33npHISUkrFyW8N-IyEEeUWCXYsIFxoCJv0QAvD_BwE"
                 target="_blank"
                 >Tienda IUSA</a
+              >
+              <a class="nav-link" href="https://mapspde.com" target="_blank">
+                PDE Maps</a
               >
             </nav>
           </div>
@@ -354,10 +360,16 @@
           <p></p>
           <router-link :to="{ name: 'SuggestionsMailbox' }" class="nav-link">
             <div class="sb-nav-link-icon">
-              <img :src="'img/icon_mail.svg'" style="height: 1.4em" />
+              <!-- <img :src="'img/icon_mail.svg'" style="height: 1.4em" /> -->
+              <i
+                class="fas fa-envelope-open-text"
+                style="color: #ba354b; height: 1.4em; font-size: 22px"
+              ></i>
             </div>
-            <span style="color: #ba354b; font-weight: 400; font-size: 16px"
-              >Buzon de Sugerencias</span
+            <span
+              style="color: #ba354b; font-weight: 400; font-size: 16px"
+              class="mailbox"
+              >Buzón de Sugerencias</span
             >
           </router-link>
         </div>
@@ -370,7 +382,7 @@
 import { mapGetters } from "vuex";
 export default {
   beforeCreate() {
-    this.encode();
+    //this.encode();
   },
   data() {
     return {
@@ -386,10 +398,10 @@ export default {
     }),
   },
   methods: {
-    encode() {
+    /* encode() {
       this.email = btoa(this.user.email);
       this.employee_code = btoa(this.user.employee_code);
-    },
+    }, */
   },
 };
 </script>

@@ -355,7 +355,7 @@ const routes = [
     },
   },
   {
-    path: "/vacation-request",
+    path: "/vacation",
     component: () => import("@/views/vacation_request/layout/Layout.vue"),
     beforeEnter: (to, from, next) => {
       if (!store.getters["auth/authenticated"]) {
@@ -372,8 +372,23 @@ const routes = [
     children: [
       {
         path: "/",
+        name: "Vacation",
+        component: () => import("@/views/vacation_request/Vacation.vue"),
+      },
+      {
+        path: "/vacation-request",
         name: "VacationRequest",
         component: () => import("@/views/vacation_request/VacationRequest.vue"),
+      },
+      {
+        path: "my-vacation-request",
+        name: "VacationMyRequest",
+        component: () => import("@/views/vacation_request/MyVacationRequest.vue"),
+      },
+      {
+        path: "vacation_detail/:id",
+        name: "VacationDetail",
+        component: () => import("@/views/vacation_request/VacationDetail.vue"),
       },
     ],
   },

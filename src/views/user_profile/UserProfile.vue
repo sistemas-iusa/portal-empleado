@@ -40,7 +40,7 @@
                   />
                   <br />
                   <a
-                    class="card-text text-perfil"
+                    class="card-text text-perfil edit"
                     style="font-weight: 700; color: #000"
                     @click="
                       () => {
@@ -97,7 +97,7 @@
                         <td class="boldUsuario">{{ data.ICNUM }}</td>
                       </tr>
                       <tr>
-                        <td>Imss</td>
+                        <td>No. Seg. Social</td>
                         <td class="boldUsuario">{{ data.NIMSS }}</td>
                         <td>Sociedad</td>
                         <td class="boldUsuario">{{ data.BUKRS }}</td>

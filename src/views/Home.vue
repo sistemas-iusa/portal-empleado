@@ -8,15 +8,16 @@
       <div class="row">
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link">
-            <router-link :to="{ name: 'Receipt' }">
+            <router-link
+              :to="{ name: 'Receipt' }"
+              style="text-decoration: none"
+            >
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black"
-                  ><i class="fas fa-money-check-alt fa-2x"></i
+                  ><i class="fas fa-money-check-alt fa-2x card-icon"></i
                 ></a>
-                <footer class="card-icon-text">
-                  <small class="text-black card-icon-text-3">
-                    Recibos<br />Nomina
-                  </small>
+                <footer class="text-black card-icon-text">
+                  <small> Recibos<br />Nomina </small>
                 </footer>
               </blockquote>
             </router-link>
@@ -28,10 +29,11 @@
               href="http://sisvia.iusa.com.mx/"
               class="text-white"
               target="_blank"
+              style="text-decoration: none"
             >
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black">
-                  <i class="fas fa-suitcase fa-2x"></i
+                  <i class="fas fa-suitcase fa-2x card-icon"></i
                 ></a>
                 <footer class="text-black card-icon-text">
                   <small> Reg. gastos de<br />viaje </small>
@@ -42,13 +44,17 @@
         </div>
         <div class="col-xl-2">
           <div class="card text-center p-3 card-link">
-            <a href="https://normatividad.iusa.com.mx" target="_blank">
+            <a
+              href="https://normatividad.iusa.com.mx"
+              target="_blank"
+              style="text-decoration: none"
+            >
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black"
-                  ><i class="fas fa-copy fa-2x"></i
+                  ><i class="fas fa-copy fa-2x card-icon"></i
                 ></a>
-                <footer class="card-icon-text">
-                  <small class="text-black">
+                <footer class="text-black card-icon-text">
+                  <small>
                     Normatividad<br />
                     &nbsp;
                   </small>
@@ -58,40 +64,40 @@
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card text-center p-3 card-link cinta">
-            <router-link :to="{ name: 'VacationRequest' }">
+          <div class="card text-center p-3 card-link">
+            <router-link
+              :to="{ name: 'Vacation' }"
+              style="text-decoration: none"
+            >
+              <!-- <a href="#" style="text-decoration: none"> -->
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black"
-                  ><i class="fas fa-suitcase-rolling fa-2x"></i
+                  ><i class="fas fa-suitcase-rolling fa-2x card-icon"></i
                 ></a>
-                <footer class="card-icon-text">
-                  <small>
-                    <a href="#" class="card-icon-text-3 text-black"
-                      >Solicitud<br />Vacaciones</a
-                    >
-                  </small>
+                <footer class="text-black card-icon-text">
+                  <small> Propuesta<br />Vacaciones </small>
                 </footer>
               </blockquote>
+              <!-- </a> -->
             </router-link>
           </div>
         </div>
         <div class="col-xl-2">
-          <router-link :to="{ name: 'MeetingRoom' }">
-            <div class="card text-center p-3 card-link">
+          <div class="card text-center p-3 card-link">
+            <router-link
+              :to="{ name: 'MeetingRoom' }"
+              style="text-decoration: none"
+            >
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black"
-                  ><i class="fas fa-users fa-2x"></i
+                  ><i class="fas fa-users fa-2x card-icon"></i
                 ></a>
-                <footer class="card-icon-text">
-                  <small>
-                    <a href="#" class="card-icon-text-3 text-black"
-                      >Reservación Sala<br />Juntas</a
-                    >
-                  </small>
+                <footer class="text-black card-icon-text">
+                  <small> Reservación Sala<br />Juntas </small>
                 </footer>
               </blockquote>
-            </div>
-          </router-link>
+            </router-link>
+          </div>
         </div>
         <div class="col-xl-2">
           <a
@@ -130,11 +136,28 @@
                 data-bs-ride="carousel"
               >
                 <div class="carousel-inner">
-                  <div
-                    class="carousel-item"
-                    :class="{ active: role[0].contingency }"
-                    v-if="role[0].contingency"
-                  >
+                  <div class="carousel-item active">
+                    <a
+                      href="https://www.fundacionalejoperalta.org/publicaciones/multimedia/video-don-alejo"
+                      target="_blank"
+                    >
+                      <img
+                        class="d-block w-100 imaCarouselHeight"
+                        :src="'img/banner_04.png'"
+                        alt="Second slide"
+                      />
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="https://mapspde.com" target="_blank">
+                      <img
+                        class="d-block w-100 imaCarouselHeight"
+                        :src="'img/banner_05.png'"
+                        alt="Second slide"
+                      />
+                    </a>
+                  </div>
+                  <div class="carousel-item" v-if="role[0].contingency">
                     <router-link :to="{ name: 'PersonalEvaluation' }">
                       <img
                         class="d-block w-100 imaCarouselHeight"
@@ -143,10 +166,7 @@
                       />
                     </router-link>
                   </div>
-                  <div
-                    class="carousel-item"
-                    :class="{ active: !role[0].contingency }"
-                  >
+                  <div class="carousel-item">
                     <router-link :to="{ name: 'MeetingRoom' }">
                       <img
                         class="d-block w-100 imaCarouselHeight"
@@ -300,7 +320,7 @@
                           target="_blank"
                           class="cardLinkSpace"
                           ><i
-                            class="fas fa-eye fa-1x"
+                            class="fas fa-eye fa-1x card-icon"
                             style="font-size: 18px"
                           ></i
                         ></a>
@@ -553,7 +573,7 @@
                           href="https://www.google.com/maps/place/Av.+Paseo+de+la+Reforma+2608,+Lomas+Altas,+Miguel+Hidalgo,+11950+Ciudad+de+M%C3%A9xico,+CDMX/@19.3942619,-99.2413432,17z/data=!3m1!4b1!4m5!3m4!1s0x85d20108c844926f:0xd04e4c239a41243f!8m2!3d19.3942619!4d-99.2391545"
                           target="_blank"
                           ><i
-                            class="fas fa-eye fa-1x"
+                            class="fas fa-eye fa-1x card-icon"
                             style="font-size: 18px"
                           ></i
                         ></a>
@@ -1124,7 +1144,10 @@
                         <p class="card-text">
                           Ejemplo: Tu destino de vacaciones favorito.
                         </p>
-                        <a href="https://seguridad.iusa.com.mx" target="_blank"
+                        <a
+                          href="https://seguridad.iusa.com.mx"
+                          target="_blank"
+                          class="card-icon"
                           >Leer más</a
                         >
                       </div>
@@ -1274,7 +1297,7 @@ export default {
     WeatherView,
   },
   mounted() {
-    this.encode();
+    //this.encode();
   },
   data() {
     return {
@@ -1289,11 +1312,11 @@ export default {
     }),
   },
   methods: {
-    encode() {
+    /* encode() {
       console.log(this.user);
       this.email = btoa(this.user.email);
       this.employee_code = btoa(this.user.employee_code);
-    },
+    }, */
   },
 };
 </script>

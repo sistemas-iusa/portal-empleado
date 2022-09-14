@@ -11,9 +11,9 @@
           >
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" style="font-weight: 700">
+                <!-- <h5 class="modal-title" style="font-weight: 700">
                   VALIDAR DATOS FISCALES
-                </h5>
+                </h5> -->
               </div>
               <div class="modal-body" style="heigth: 450px">
                 <fiscal-identification-data

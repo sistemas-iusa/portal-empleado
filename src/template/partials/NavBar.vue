@@ -5,10 +5,12 @@
   >
     <!-- Navbar Brand-->
     <router-link :to="{ name: 'Home' }" class="navbar-brand ps-3">
-      <img :src="'img/logo_pe.svg'" />&nbsp;&nbsp;<span
-        style="border-left: 2px solid; color: #636363"
-      ></span
-      >&nbsp;&nbsp;<img :src="'img/logo_iusa_gray.svg'" />
+      <img :src="'img/logo_pe.svg'" v-if="!sun" /><img
+        :src="'img/logo_pe_w.svg'"
+        v-else
+      />&nbsp;&nbsp;<span style="border-left: 2px solid; color: #636363"></span
+      >&nbsp;&nbsp;<img :src="'img/logo_iusa_gray.svg'" v-if="!sun" />
+      <img :src="'img/logo_iusa_w.svg'" v-else />
     </router-link>
     <!-- Sidebar Toggle-->
     <button
@@ -71,6 +73,35 @@
         </router-link> 
       </li>-->
       <li class="nav-item dropdown">
+        <a
+          class="nav-link"
+          @click="selectTheme((sun = !sun))"
+          id="navbarDropdown"
+          role="button"
+          aria-expanded="false"
+        >
+          <span :class="{ sunClass: sun === false, moonClass: sun === true }"
+            ><i class="fas fa-sun fa-2x" style="color: rgb(255, 165, 0)"></i
+          ></span>
+          <span :class="{ sunClass: sun === true, moonClass: sun === false }"
+            ><i
+              class="fas fa-moon fa-2x fa-flip-horizontal"
+              style="color: #343d5b"
+            ></i
+          ></span>
+        </a>
+      </li>
+      <!-- <button
+        class="switch"
+        style="margin-right: 15px"
+        :class="{ active: sun }"
+        @click="selectTheme((sun = !sun))"
+      >
+        ;
+        <span><i class="far fa-sun"></i></span>
+        <span><i class="far fa-moon"></i></span>
+      </button> -->
+      <li class="nav-item dropdown">
         <router-link
           :to="{ name: 'UserProfile' }"
           class="nav-link"
@@ -82,20 +113,20 @@
           <img
             :src="'https://api-empleado.iusa.com.mx/' + user.image_profile"
             alt=""
-            style="border-radius: 50%; margin-top: -10px; margin-bottom: -5px"
+            style="border-radius: 50%; margin-top: 0px"
             width="36px;"
           />
         </router-link>
       </li>
-      <a
+      <button
         class="btn btn-portal btn-md btn-block"
-        style="margin-left: 20px"
+        style="margin-left: 10px; margin-top: 5px; margin-bottom: 5px"
         @click.prevent="signOut"
         data-toggle="modal"
         data-target="#logoutModal"
       >
         <i class="fas fa-sign-out-alt"></i> Salir
-      </a>
+      </button>
     </ul>
   </nav>
 </template>
@@ -103,6 +134,11 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      sun: false,
+    };
+  },
   computed: {
     ...mapGetters({
       authenticated: "auth/authenticated",
@@ -120,8 +156,21 @@ export default {
         });
       });
     },
+    selectTheme(sun) {
+      this.sun = sun;
+      /* const element = document.querySelector("#app");
+      element.classList.toggle("dark"); */
+      document.body.classList.toggle("dark");
+    },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.sunClass {
+  display: none;
+}
+.moonClass {
+  display: block;
+}
+</style>

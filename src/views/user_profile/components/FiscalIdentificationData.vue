@@ -3,9 +3,9 @@
     <br />
     <h5
       class="card-title cellContainer"
-      style="font-weight: 700; font-size: 24px"
+      style="font-weight: 700; font-size: 18px"
     >
-      DIRECCIÓN DATOS FISCALES &nbsp;<button
+      VALIDAR DATOS FISCALES CON LA CONSTANCIA DE SITUACIÓN FISCAL &nbsp;<button
         v-if="!edit"
         @click="edit = !edit"
         class="btn btn-light"
@@ -241,9 +241,7 @@
               v-model="fiscalData.street_name"
               class="form-control"
               @change="
-                fiscalData.street_name = filtroCaracter(
-                  fiscalData.street_name
-                )
+                fiscalData.street_name = filtroCaracter(fiscalData.street_name)
               "
             />
           </div>

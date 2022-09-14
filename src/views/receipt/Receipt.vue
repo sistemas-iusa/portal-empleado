@@ -6,12 +6,51 @@
         <li class="breadcrumb-item active"></li>
       </ol>
       <div class="row">
-        <div class="col-xl-6">
-          <span class="huge-3">DA CLICK SOBRE EL PDF O XML A VISUALIZAR.</span>
+        <div class="col-xl-12">
+          <span class="huge-3"
+            >A CONTINUACIÓN SE MUESTRAN TUS RECIBOS DE NÓMINA, DA CLICK SOBRE EL
+            PDF O XML A VISUALIZAR.</span
+          >
         </div>
       </div>
       <br />
-      <div class="row cellContainer">
+      <table class="table table-sm table-striped">
+        <thead style="background-color: #757575; color: #ffffff">
+          <tr>
+            <th style="font-weight: 700">FECHA</th>
+            <th style="font-weight: 700">EMPLEADO</th>
+            <th style="font-weight: 700">TIPO</th>
+            <th style="font-weight: 700">ARCHIVOS</th>
+            <!-- <th style="font-weight: 700">VISITADO</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in data" :key="index">
+            <td>
+              {{ item.FECDO }}
+            </td>
+            <td>{{ item.NUMEM }} - {{ item.NOMRE }}</td>
+            <td style="font-weight: 600">
+              {{ item.MIS01.toUpperCase() }}
+            </td>
+            <td>
+              <a
+                href="#"
+                @click="getPayroll(item, item.fortnight_2, 'pdf')"
+                style="margin-right: 1em"
+                ><i class="far fa-file-pdf" style="color: #ba354b"></i> PDF
+              </a>
+              <a href="#" @click="getPayroll(item, item.fortnight_2, 'xml')"
+                ><i class="far fa-file-excel" style="color: #ba354b"></i> XML
+              </a>
+            </td>
+            <!-- <td>
+              {{ item.FECDO }}
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+      <!-- <div class="row cellContainer">
         <div class="col-xl-3" v-for="(item, index) in data" :key="index">
           <div class="card mb-3">
             <div
@@ -68,7 +107,7 @@
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </main>
 </template>
@@ -82,21 +121,29 @@ export default {
     };
   },
   mounted() {
-    this.getMonths();
+    this.getListPayroll();
   },
   methods: {
-    async getMonths() {
+    async getListPayroll() {
+      await axios.get("getListPayroll").then((response) => {
+        this.data = response.data;
+        this.data.pop();
+      });
+    },
+    /* async getMonths() {
       await axios
         .get("getMonths")
         .then((response) => (this.data = response.data.reverse()));
-    },
+    }, */
     async getPayroll(item, fortnight, type) {
+      //console.log(item.CUUID);
       await axios
         .post("getPayroll", {
-          fortnight: fortnight,
-          month: item.month,
-          year: item.year,
+          //fortnight: fortnight,
+          //month: item.month,
+          //year: item.year,
           type: type,
+          cuuid: item.CUUID,
         })
         .then(function (response) {
           window.open(response.data);

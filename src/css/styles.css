@@ -100,6 +100,110 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #323b44;
+  color:#fff;
+}
+
+body.dark .container-fluid .request{
+  color:#fff !important;
+}
+
+body.dark nav{
+  background-color: #3a444e !important;
+  color: #fff !important;
+}
+
+body.dark nav .navbar-brand span{
+  background-color: #3a444e !important;
+  color: #fff !important;
+}
+
+body.dark nav #sidebarToggle{
+  background-color: #3a444e !important;
+  color: #fff !important;
+}
+
+body.dark #layoutSidenav_nav nav{
+  background-color: #36404a !important;
+}
+
+body.dark footer{
+  background-color: #3a444e !important;
+}
+
+body.dark footer .text-muted{
+  color: #fff !important;
+}
+
+body.dark footer a{
+  color: #fff !important;
+}
+
+body.dark nav .nav .sb-sidenav-menu-heading{
+  color: #fff !important;
+}
+
+body.dark nav .nav .nav-link{
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark nav .nav .nav-link .sb-nav-link-icon{
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.dark nav .nav .nav-link span{
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+body.dark a.edit{
+  color:#fff !important;
+}
+
+body.dark .card{
+  background-color: #36404a;
+  color:#fff;
+  border: red !important;
+}
+
+body.dark table tbody tr td{
+  color: #fff;
+} 
+
+body.dark table thead tr th{
+  color: #fff;
+} 
+
+body.dark .card .card-body a .card-icon{
+  color:#fff;
+}
+
+body.dark .card .card-body a{
+  color:#fff;
+}
+
+body.dark .card-link{
+  background-color: #36404a;
+  color: #fff !important;
+  box-shadow: none;
+  border: 2px solid rgba(54, 64, 74, 0.08);
+}
+
+body.dark .card-link footer.card-icon-text{
+  background-color: #36404a !important;
+  color: #fff !important;
+}
+
+body.dark .card-link a .card-icon-text{
+  color: #fff !important;
+  background-color: #36404a !important;
+}
+
+body.dark .card-link a .card-icon{
+  color: #fff !important;
 }
 
 .bg-img {
@@ -130,7 +234,7 @@ body {
   left: -43px;
   display: block;
   box-sizing: border-box;
-  content: "PRÓXIMAMENTE";
+  content: "próximamente";
   text-transform: uppercase;
   font-size: 13px;
   text-align: center;
@@ -2628,8 +2732,9 @@ textarea.form-control-lg {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  /*
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+  color-adjust: exact; */
 }
 .form-check-input[type="checkbox"] {
   border-radius: 0.25em;
@@ -12283,9 +12388,9 @@ img.center {
 .iconminHeight {
   height: 1.25em;
 }
-.imaCarouselHeight {
+/*.imaCarouselHeight {
   height: 250px;
-}
+}*/
 .textColorSucces {
   color: seagreen;
 }
@@ -12471,4 +12576,52 @@ img.center {
 
 body.sidebar-toggled {
   max-width: 100% !important;
+}
+
+/* switch */
+
+.switch{
+  background: #343d5b;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  /* height: 30px;
+  width: 65px; */
+}
+
+.switch span{
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+}
+
+.switch::after{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  transition: .3s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+}
+
+.switch.active{
+  background: orange;
+  color: #000;
+}
+
+.switch.active::after{
+  right: 0;
+  left: unset;
 }
