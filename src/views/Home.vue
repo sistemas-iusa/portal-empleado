@@ -64,12 +64,12 @@
           </div>
         </div>
         <div class="col-xl-2">
-          <div class="card text-center p-3 card-link">
-            <router-link
+          <div class="card text-center p-3 card-link cinta">
+            <!--<router-link
               :to="{ name: 'Vacation' }"
               style="text-decoration: none"
-            >
-              <!-- <a href="#" style="text-decoration: none"> -->
+            > -->
+            <a href="#" style="text-decoration: none">
               <blockquote class="blockquote mb-0">
                 <a href="#" class="text-black"
                   ><i class="fas fa-suitcase-rolling fa-2x card-icon"></i
@@ -78,8 +78,8 @@
                   <small> Propuesta<br />Vacaciones </small>
                 </footer>
               </blockquote>
-              <!-- </a> -->
-            </router-link>
+            </a>
+            <!--</router-link>-->
           </div>
         </div>
         <div class="col-xl-2">
@@ -137,6 +137,15 @@
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
+                    <router-link :to="{ name: 'SAPCourse' }">
+                      <img
+                        class="d-block w-100 imaCarouselHeight"
+                        :src="'img/banner_06.png'"
+                        alt="Cursos SAP"
+                      />
+                    </router-link>
+                  </div>
+                  <div class="carousel-item">
                     <a
                       href="https://www.fundacionalejoperalta.org/publicaciones/multimedia/video-don-alejo"
                       target="_blank"
@@ -684,18 +693,43 @@
                     <div class="card">
                       <img
                         class="card-img-top cardImageSize"
+                        :src="'img/mapa_puebla.png'"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Puebla</h5>
+                        <p class="card-text">
+                          Av. San Lorenzo Núm. 803, Parque Empresarial
+                          Cuautlancingo, Cuautlancingo Puebla C.P. 72730
+                        </p>
+                        <a
+                          class="cardLinkSpace"
+                          href="https://www.google.com.mx/maps/place/Iusa+puebla/@19.1107389,-98.2685913,16z/data=!4m5!3m4!1s0x85cfc5e2dd5f6dd9:0x9a4522e9ea1fbf7b!8m2!3d19.1107314!4d-98.2598187"
+                          target="_blank"
+                          ><i
+                            class="fas fa-eye fa-1x"
+                            style="font-size: 18px"
+                          ></i
+                        ></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card">
+                      <img
+                        class="card-img-top cardImageSize"
                         :src="'img/mapa_oaxaca.JPG'"
                         alt="Card image cap"
                       />
                       <div class="card-body">
                         <h5 class="card-title">OAXACA</h5>
                         <p class="card-text">
-                          Calle Azucenas No. 205 A Col. Reforma, Oaxaca de
-                          Juárez, Oaxaca C.P. 68050
+                          Heroica Escuela Naval Militar No 401-Int 1, Reforma,
+                          68050 Oaxaca de Juárez, Oax.
                         </p>
                         <a
                           class="cardLinkSpace"
-                          href="https://www.google.com/maps/place/C.+Azucenas+205,+Reforma,+68050+Oaxaca+de+Ju%C3%A1rez,+Oax./data=!4m2!3m1!1s0x85c7222d7125fb9b:0xc1ae503a450207dc?sa=X&ved=2ahUKEwjun-T21-H0AhVmkmoFHb5zBqgQ8gF6BAgFEAE"
+                          href="https://www.google.com.mx/maps/place/Iusa+Comercializadora/@17.0786453,-96.7163323,17z/data=!3m1!5s0x85c7222ed3ade24d:0x750914f29978790e!4m9!1m2!2m1!1siusa+oaxaca!3m5!1s0x85c7222bfdf867a7:0x4bda30597d9535ae!8m2!3d17.0786434!4d-96.7143362!15sCgtpdXNhIG9heGFjYSIDiAEBWg0iC2l1c2Egb2F4YWNhkgEVcGx1bWJpbmdfc3VwcGx5X3N0b3Jl4AEA"
                           target="_blank"
                           ><i
                             class="fas fa-eye fa-1x"

@@ -47,10 +47,10 @@
               <router-link :to="{ name: 'Receipt' }" class="nav-link"
                 >Recibos de Nómina</router-link
               >
-              <router-link :to="{ name: 'Vacation' }" class="nav-link">
-                <!-- <a href="#" class="nav-link"> -->
+              <!--<router-link :to="{ name: 'Vacation' }" class="nav-link"> -->
+                 <a href="#" class="nav-link"> 
                 Propuesta de Vacaciones
-                <!-- <span
+                <span
                   class="badge badge-info"
                   style="
                     color: #fff;
@@ -58,9 +58,9 @@
                     font-size: 10px;
                   "
                   >Próximamente</span
-                > -->
-                <!-- </a> -->
-              </router-link>
+                > 
+                </a> 
+              <!--</router-link>-->
               <a
                 class="nav-link"
                 href="http://sisvia.iusa.com.mx/"

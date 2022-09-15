@@ -18,7 +18,7 @@ import Logotipos from "../views/Logotipos.vue";
 import Catalogs from "../views/Catalogs.vue";
 import WeatherView from "../views/weather_view/WeatherView.vue";
 import store from "@/store";
-
+import SAPCourses from "../views/courses/SAPCourses.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -354,7 +354,7 @@ const routes = [
       next();
     },
   },
-  {
+  /*{
     path: "/vacation",
     component: () => import("@/views/vacation_request/layout/Layout.vue"),
     beforeEnter: (to, from, next) => {
@@ -391,6 +391,23 @@ const routes = [
         component: () => import("@/views/vacation_request/VacationDetail.vue"),
       },
     ],
+  },*/
+  {
+    path: "/courses",
+    name: "SAPCourse",
+    component: SAPCourses,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      } else if (!store.getters["auth/user"].fiscal) {
+        return next({
+          name: "UserProfile",
+        });
+      }
+      next();
+    },
   },
   {
     path: "/:pathMatch(.*)*",

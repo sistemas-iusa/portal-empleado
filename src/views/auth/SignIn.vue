@@ -58,8 +58,11 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-12">
+                    <!--6Lefo8kUAAAAANnsSS5MfvDnzzniSQ0f3Nfc6U_A-->
+                    <!--6LcBWu8cAAAAAPkFv26t8URoGbePqeapDBF8lCkh-->
+                    <!--6LerVfgcAAAAAHiI6iQYrspm-_K0AjOYrwsw3ga6-->
                     <vue-recaptcha
-                      sitekey="6Lefo8kUAAAAANnsSS5MfvDnzzniSQ0f3Nfc6U_A"
+                      sitekey="6LerVfgcAAAAAHiI6iQYrspm-_K0AjOYrwsw3ga6"
                       @verify="onVerify"
                       @expired="onExpired"
                     ></vue-recaptcha>
