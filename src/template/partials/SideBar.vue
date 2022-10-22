@@ -177,6 +177,51 @@
               <router-link :to="{ name: 'MeetingRoom' }" class="nav-link"
                 >Salas Físicas</router-link
               >
+
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#pagesCollapseCurso"
+                aria-expanded="false"
+                aria-controls="pagesCollapseCurso"
+              >
+                Cursos
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+
+              <div
+                class="collapse"
+                id="pagesCollapseCurso"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordionPages"
+              >
+                <!--<nav class="sb-sidenav-menu-nested nav">
+                  <router-link
+                    :to="{ name: 'SAPCourse' }"
+                    class="nav-link"
+  
+                    >SAP R3</router-link
+                  >
+                  </nav>-->
+
+                  <a href="#" class="nav-link"> 
+                SAP R3 &nbsp; 
+                <span
+                  class="badge badge-info"
+                  style="
+                    color: #fff;
+                    background-color: #17a2b8;
+                    font-size: 10px;
+                  "
+                  >Próximamente</span
+                > 
+                </a> 
+                </div>
+
+
               <!-- <a class="nav-link" href="#">Audioconferencias</a> -->
               <router-link :to="{ name: 'PhoneBook' }" class="nav-link">
                 Directorio de Exts.

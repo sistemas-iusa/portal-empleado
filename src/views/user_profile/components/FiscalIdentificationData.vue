@@ -468,7 +468,6 @@ export default {
         this.fiscalData.curp == "" ||
         this.fiscalData.name == "" ||
         this.fiscalData.first_lastname == "" ||
-        this.fiscalData.second_lastname == "" ||
         this.fiscalData.post_code == "" ||
         this.fiscalData.telephone == "" ||
         this.fiscalData.street_name == "" ||

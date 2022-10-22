@@ -57,7 +57,11 @@
             </table>
           </div>
           <p></p>
-          <div class="col-xl-12 d-flex flex-row-reverse">
+          <div class="col-xl-12 row">
+            <div class="col-xl-6">
+              Total de registros {{ data.length}}
+            </div>
+            <div class="col-xl-6 d-flex flex-row-reverse">
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 <li class="page-item">
@@ -93,6 +97,7 @@
                 </li>
               </ul>
             </nav>
+          </div>
           </div>
         </div>
       </div>

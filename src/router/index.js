@@ -18,7 +18,7 @@ import Logotipos from "../views/Logotipos.vue";
 import Catalogs from "../views/Catalogs.vue";
 import WeatherView from "../views/weather_view/WeatherView.vue";
 import store from "@/store";
-import SAPCourses from "../views/courses/SAPCourses.vue";
+//import SAPCourses from "../views/courses/SAPCourses.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -392,7 +392,7 @@ const routes = [
       },
     ],
   },*/
-  {
+  /*{
     path: "/courses",
     name: "SAPCourse",
     component: SAPCourses,
@@ -408,7 +408,7 @@ const routes = [
       }
       next();
     },
-  },
+  },*/
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",
